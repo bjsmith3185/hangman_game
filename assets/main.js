@@ -103,8 +103,16 @@ function checkLetter(selectedLetter) {
 
         //     // send a signal to reduce number of guesses left
         // }
-    }
-    } game(selectedLetter);
+    } 
+    } 
+        if (isInArray) {
+            game(selectedLetter);
+        } else {
+            misses++;
+            console.log("this is misses " + misses);
+            didIWin();
+        }
+    
 };
 
 
@@ -119,11 +127,12 @@ function game(selectedLetter) {
                 didIWin();
             } 
         }
-    } else {
-        misses++;
-        console.log("this is misses " + misses);
-        didIWin();
-    }
+    } 
+    // else {
+    //     misses++;
+    //     console.log("this is misses " + misses);
+    //     didIWin();
+    // }
 };
 
 function didIWin(){
