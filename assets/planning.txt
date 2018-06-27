@@ -1,0 +1,44 @@
+
+
+create array for each category
+
+select category with button
+no function
+    onclick
+    save value of button to var
+    selectWord()
+
+function selectWord()
+    pick a random number for the selected array to get new word
+            use the var containing the category from above
+    array for the word to guess
+    var for the lenght of the word to guess
+    put word to guess into an array as individual letter
+    create an array with blanks of the number or word to guess lenght
+
+var guessesLeft = length of word selected
+
+
+
+
+
+use the array of all 26 letters to create dynamic buttons
+    each button will have a value and display the letter.
+
+on click function 
+
+if guessesLeft >0 (if not alert game over, you lost)
+    hide the user selected letter button
+    if in the word to guess array
+        push the letter into the black array to the i position
+    if it is not in the array
+        do nothing
+
+if (tempwordtoguess array = blankwordtoguess array)
+    alert(you won)
+    wins++
+    newWord()
+
+
+
+

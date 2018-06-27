@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+    <title>hangman welcome</title>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp' crossorigin='anonymous'>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+    <link rel='stylesheet' href='assets/style.css'>
+</head>
+<body>
+    <div class="container container-welcome-screen" >
+        <div class="jumbotron">
+            <h1>Welcome to Hangman!</h1>
+            <h3>Select a category to begin.</h3>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-header">Select Category</div>
+            <div class="panel-body">
+                <!-- <div class="category-buttons"> -->
+                    <button class="category-buttons" id="movies" value="movies">Movie Titles</button>
+                    <button class="category-buttons" id="songs" value="songs">Song Titles</button>
+                    <button class="category-buttons" id="burgers" value="burgers">Burger Toppings</button>
+                    <button class="category-buttons" id="cars" value="cars">Car Manufacturers</button>
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- game screen area -->
+
+    <div class="container container-game-screen">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Hangman, the <span id="category-name"></span> edition!</h2> 
+                    <div class="wins">12</div>
+                    <div class="losses">24</div>
+                    <div class="restart"><button class="restart-button">Restart</button></div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-lg-12" id="guess-area-col">
+                    <div class="guess-area" id="guess-area" >Guess Area</div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-lg-8" id="letter-area-col">
+                    <div class="letter-area" id="letter-area">letter area</div>
+                </div>
+    
+                <div class="col-lg-4" id="picture-are-col">
+                    <div class="picture-area">picture area</div>
+                </div>
+            </div>
+               
+            
+        </div>
+
+
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script type='text/javascript' src='assets/main.js'></script>
+</body>
+</html>
