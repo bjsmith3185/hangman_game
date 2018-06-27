@@ -1,5 +1,60 @@
 
 
+
+selectWord(category)
+    picks random from array using var category
+    creates wordtoguess array
+    creates displayArray
+    puts displayArray into dom
+
+createButtons()
+    clears letters-area div
+    creates dynamic buttons
+
+pickLetter()
+    selects the clicked button
+    stores value into var selectedLetter
+    hides the selected button
+
+checkLetter(selectedLetter)
+    checks if the letter is in the wordtoguess array
+        runs updateArray(selectedLetter) if true 
+
+        miss++ if false
+
+updateArray(selectedLetter)
+    puts the letter in the displayArray where needed
+    displays the array in html
+    
+    check the displayarrray and wordtoguess array
+        if they are ===
+            wins++
+            nextWord = true
+            reset()
+
+reset()
+    if nextWord is true
+        set nextWord to false
+        createButtons()
+        selectWord()
+        pickLetter();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------
 create array for each category
 
 select category with button
