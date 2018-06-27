@@ -172,7 +172,8 @@ function reset() {
     // if (nextWord) {
     //     nextWord = false;
     //     gameOn = true;
-    $("#guess-area").empty();
+    // $("#guess-area").empty();
+    displayArray = [];
         // $(".wins").text(wins);
         // $(".losses").text(losses);
         selectWord(category);

@@ -176,6 +176,7 @@ function reset() {
     if (nextWord) {
         nextWord = false;
         gameOn = true;
+        displayArray = [];
         $("#guess-area").empty();
         $(".wins").text(wins);
         $(".losses").text(losses);
