@@ -36,10 +36,20 @@ reset()
     if nextWord is true
         set nextWord to false
         createButtons()
-        selectWord()
+        selectWord(category)
         pickLetter();
+        empty guess-area
+        update wins and losses
 
 
+
+
+
+select category
+    stores var category
+    selects word
+    creates buttons
+    pick letter()
 
 
 

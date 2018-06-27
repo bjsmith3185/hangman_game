@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     $(".container-game-screen").hide();
+    $(".container-loss-screen").hide();
 
 
 var letters =["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","_"," "];
@@ -16,10 +17,12 @@ var category;
 var wordToGuessArray = [];
 var lengthOfWordToGuess;
 var displayArray = [];
+var isInArray = false;
 var nextWord = false;
 var wins = 0;
 var losses = 0;
 var misses = 0;
+var gameOn = true;
 
 
 
@@ -69,60 +72,117 @@ function createButtons() {
 };
 
 function pickLetter() {
+    if (gameOn) {
     btns.on("click", ".letter", function() {
         selectedLetter = $(this).attr("data-newletter");
-        // console.log("this is the letter selected: " + selectedLetter);
+        console.log("this is the letter selected: " + selectedLetter);
         $(this).hide();
         checkLetter(selectedLetter);
+        console.log("after letter picked, misses: " + misses);
       });
-};
-
-
-function checkLetter(selectedLetter) {
-    for (var i = 0; i < lengthOfWordToGuess; i++) {
-        if(selectedLetter === wordToGuessArray[i]) {
-           
-            // console.log("is in the word: " + populateArray);
-            updateArray(selectedLetter);
-        } else {
-          
-            misses++;
-            // send a signal to reduce number of guesses left
-        }
     }
 };
 
 
-function updateArray (selectedLetter) {
+function checkLetter(selectedLetter) {
+    isInArray = false;
     for (var i = 0; i < lengthOfWordToGuess; i++) {
         if(selectedLetter === wordToGuessArray[i]) {
-            displayArray[i] = selectedLetter;
-            // console.log(displayArray);
-            // console.log(wordToGuessArray);
-            $("#guess-area").text(displayArray.join(" "));
-            if (displayArray.toString() === wordToGuessArray.toString()) {
-                    // alert("you won");
-                    wins++;
-                    nextWord = true;
-                    console.log("this is nextWord status: " + nextWord);
-                    console.log("this is category: " + category);
-                    reset();
+            isInArray = true;
+            // game(selectedLetter);
+            // console.log("is in the word: " + populateArray);
+            // updateArray(selectedLetter);
+        // } else {
+        //     isInArray = false;
+        //     game(selectedLetter);
+        //     // misses++;
 
-            }
-        }
-    };
+        //     // if(misses === 6){
+        //     //     $(".container-loss-screen").show();
+        //     // }
+
+        //     // send a signal to reduce number of guesses left
+        // }
+    }
+    } game(selectedLetter);
 };
+
+
+function game(selectedLetter) {
+    if (isInArray) {
+        for (var i = 0; i < lengthOfWordToGuess; i++) {
+            if(selectedLetter === wordToGuessArray[i]) {
+                displayArray[i] = selectedLetter;
+                // console.log(displayArray);
+                // console.log(wordToGuessArray);
+                $("#guess-area").text(displayArray.join(" "));
+                didIWin();
+            } 
+        }
+    } else {
+        misses++;
+        console.log("this is misses " + misses);
+        didIWin();
+    }
+};
+
+function didIWin(){
+    if (displayArray.toString() === wordToGuessArray.toString()) {
+            // alert("you won");
+            wins++;
+            nextWord = true;
+            // console.log("this is nextWord status: " + nextWord);
+            // console.log("this is category: " + category);
+            reset();
+
+    }
+    if (misses === 6) {
+        gameOn = false;
+        losses++;
+        $(".container-loss-screen").show();
+    }
+};
+
+$("#nextWord").on("click", function() {
+    nextWord = true;
+    reset();
+    $(".container-loss-screen").hide();
+});
+
+
+
+// function updateArray (selectedLetter) {
+//     for (var i = 0; i < lengthOfWordToGuess; i++) {
+//         if(selectedLetter === wordToGuessArray[i]) {
+//             displayArray[i] = selectedLetter;
+//             // console.log(displayArray);
+//             // console.log(wordToGuessArray);
+//             $("#guess-area").text(displayArray.join(" "));
+//             if (displayArray.toString() === wordToGuessArray.toString()) {
+//                     // alert("you won");
+//                     wins++;
+//                     nextWord = true;
+//                     console.log("this is nextWord status: " + nextWord);
+//                     console.log("this is category: " + category);
+//                     reset();
+
+//             }
+//         }
+//     };
+// };
 
 
 function reset() {
     if (nextWord) {
         nextWord = false;
-        createButtons();
-        selectWord(category);
-        pickLetter();
+        gameOn = true;
         $("#guess-area").empty();
         $(".wins").text(wins);
         $(".losses").text(losses);
+        selectWord(category);
+        createButtons();
+        pickLetter();
+        
     }
 }
 
@@ -154,6 +214,7 @@ function restart() {
     $(".container-game-screen").hide();
     $(".container-welcome-screen").show();
     $("#letter-area").empty();
+    $(".container-loss-screen").hide();
 };
 
 $("#restart").on("click", function() {
@@ -163,6 +224,6 @@ $("#restart").on("click", function() {
 });
 
 
-
+// need a true/false to allow user to click letter buttons.
 // create an update score function to run after the letter button onlcick event. 
 // create a function to update a picture of a hang man. 
