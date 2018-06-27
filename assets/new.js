@@ -25,6 +25,7 @@ var gameOn = true;
 
 selectWord(category);
 function selectWord(category) {
+    displayArray = []
     if (category === "movies") {
         $("#category-name").text("Movie titles");
         selectedWord = movies[Math.floor(Math.random() * movies.length)];
@@ -172,15 +173,14 @@ function reset() {
     // if (nextWord) {
     //     nextWord = false;
     //     gameOn = true;
-    // $("#guess-area").empty();
-    displayArray = [];
+    $("#guess-area").empty();
+    // displayArray = [];
         // $(".wins").text(wins);
         // $(".losses").text(losses);
         selectWord(category);
         // createButtons();
         // pickLetter();
-        
-        
+
     // }
 };
 

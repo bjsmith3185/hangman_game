@@ -27,6 +27,7 @@ var gameOn = true;
 
 
 function selectWord(category) {
+    displayArray = [];
     if (category === "movies") {
         $("#category-name").text("Movie titles");
         selectedWord = movies[Math.floor(Math.random() * movies.length)];
