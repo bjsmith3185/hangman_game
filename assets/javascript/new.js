@@ -141,6 +141,7 @@ function didIWin() {
     if (displayArray.toString() === wordToGuessArray.toString()) {
         wins++;
         $(".wins").text(wins);
+        $("#missesPic").attr('src', 'assets/images/1.JPG');
         
         startGame();
 } else if (misses === 7) {
@@ -157,26 +158,30 @@ $("#nextWord").on("click", function() {
     startGame(category);
     $(".container-loss-screen").hide();
     $(".container-game-screen").show();
-    resetPic(misses);
+   
 });
 
 
 $("#redo").on("click", function() {
-    alert("hi");
+    // alert("hi");
     $(".container-game-screen").hide();
     $(".container-loss-screen").hide();
     $(".container-welcome-screen").show();
-    resetPic(misses);
+    $("#missesPic").attr('src', 'assets/images/1.JPG');
     wins = 0;
     losses = 0;
 });
 
-function resetPic(misses) {
-    if(misses === 0) {
-        $("#missesPic").attr('src', 'assets/images/1.JPG');
-    }
-};
-// end of document ready
+$("#redo-lost").on("click", function() {
+    // alert("hi");
+    $(".container-game-screen").hide();
+    $(".container-loss-screen").hide();
+    $(".container-welcome-screen").show();
+    $("#missesPic").attr('src', 'assets/images/1.JPG');
+    wins = 0;
+    losses = 0;
+});
+
 
 });
 

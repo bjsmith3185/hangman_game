@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>hangman welcome</title>
+    <title>hangman game</title>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -10,7 +10,9 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel='stylesheet' href='assets/css/style.css'>
 </head>
+
 <body>
+    <!-- welcome screen area  -->
     <div class="container container-welcome-screen" >
         <div class="jumbotron" id="jumbo">
             <h1>Welcome to Hangman!</h1>
@@ -19,12 +21,10 @@
         <div class="panel panel-default" id="welcome-panel">
             <div class="panel-header " id="welcome-header">Select Category bro.</div>
             <div class="panel-body" id="catgeory-btn">
-                <!-- <div class="category-buttons"> -->
-                    <button class="category-buttons" id="movies" value="movies">Movie Titles</button>
-                    <button class="category-buttons" id="songs" value="songs">Song Titles</button>
-                    <button class="category-buttons" id="burgers" value="burgers">Burger Toppings</button>
-                    <button class="category-buttons" id="cars" value="cars">Car Manufacturers</button>
-                <!-- </div> -->
+                <button class="category-buttons" id="movies" value="movies">Arnold Movie Titles</button>
+                <button class="category-buttons" id="songs" value="songs">80's Song Titles</button>
+                <button class="category-buttons" id="burgers" value="burgers">Burger Toppings</button>
+                <button class="category-buttons" id="cars" value="cars">Car Manufacturers</button>
             </div>
         </div>
     </div>
@@ -58,37 +58,36 @@
             <div class="col-sm-2"></div>
 
             <div class="col-sm-4" id="picture-are-col">
-                <!-- <div class="picture-area"> -->
-                    <img src="assets/images/1.JPG" id="missesPic">
-                <!-- </div> -->
+                <img src="assets/images/1.JPG" id="missesPic">
             </div>
         </div>
     </div>
 
+    <!-- loss screen area  -->
 
-        <div class="container container-loss-screen">
-            <div class="row" id ="top-row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-8">
-                    <div class="panel panel-border">
-                        <div class="panel-header text-center">
-                                <div id="lost-heading">You lost!</div> 
-                        </div>
-                        <div class="panel-body text-center">
-                            <div id="lossPic">
-                                <img src="assets/images/8.JPG" id="lastPic">
-                                <h3 id="try">Try Again? </h3><button class="btn btn-success" id="nextWord">Next Word</button>
-                            </div>
-                            
-                        </div>
+    <div class="container container-loss-screen">
+        <div class="row" id ="top-row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <div class="panel panel-border">
+                    <div class="panel-header text-center">
+                            <div id="lost-heading">You lost!</div> 
                     </div>
-                    <div class="panel-body" id="last-panel-loss">
-                        <div class="btnRow"><button class="btn" id="redo">Start Over</button><span id="overwhelmed"> Feeling Overwhelmed? </span></div>
+                    <div class="panel-body text-center">
+                        <div id="lossPic">
+                            <img src="assets/images/8.JPG" id="lastPic">
+                            <h3 id="try">Try Again? </h3><button class="btn btn-success" id="nextWord">Next Word</button>
+                        </div>
+                        
                     </div>
                 </div>
-                <div class="col-sm-2"></div>
+                <div class="panel-body" id="last-panel-loss">
+                    <div class="btnRow"><button class="btn" id="redo-lost">Start Over</button><span id="overwhelmed"> Feeling Overwhelmed? </span></div>
+                </div>
             </div>
+            <div class="col-sm-2"></div>
         </div>
+    </div>
 
 
 
