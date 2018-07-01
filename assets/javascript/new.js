@@ -5,11 +5,11 @@ var letters =["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q
 var main = $("body");
 var buttons = main.find("#letter-area");
 var selectedLetter;
-var movies = ["top_gun", "dinasour_park", "gun_fighter","fast_and_furious","notebook","forrest_gump","frozen"];
-var songs = ["wildflowers", "down_south", "refugee"];
-var burgers = ["tomato", "mustard", "bacon"];
-var cars = ["ford", "chevy", "dodge", "lexus"];
-
+var movies = ["terminator", "commando", "predator","twins","true_lies","kindergarten_cop","pumping_iron"];
+var songs = ["keep_on_loving_you", "celebration", "who_can_it_be_now", "mickey", "beat_it", "all_night_long", "time_after_time", "the_power_of_love", "we_build_this_city", "livin_on_a_prayer", "la_bamba", "welcome_to_the_jungle", "free_fallin"];
+var burgers = ["tomato", "mustard", "bacon", "ketchup", "mayo", "lettuce", "egg", "pickles"];
+var cars = ["ford", "chevy", "dodge", "lexus", "kia", "toyota", "honda", "jeep", "chrystler"];
+var count = 1;
 var selectedWord;
 var category;
 var wordToGuessArray = [];  
@@ -24,6 +24,7 @@ var gameOn = true;
 $(".container-welcome-screen").show();
 $(".container-game-screen").hide();
 $(".container-loss-screen").hide();
+$(".container-win-screen").hide();
 
 
 $("body").on("click", ".category-buttons", function() {
@@ -31,6 +32,7 @@ $("body").on("click", ".category-buttons", function() {
     $(".container-game-screen").show();
     $(".container-welcome-screen").hide();
     $(".container-loss-screen").hide();
+    $(".container-win-screen").hide();
     $(".wins").text(wins);
     $(".losses").text(losses);
    
@@ -142,8 +144,11 @@ function didIWin() {
         wins++;
         $(".wins").text(wins);
         $("#missesPic").attr('src', 'assets/images/1.JPG');
+        $(".container-game-screen").hide();
+        $(".container-win-screen").show();
+        winning();
         
-        startGame();
+        // startGame();
 } else if (misses === 7) {
         gameOn = false;
         losses++;
@@ -154,11 +159,21 @@ function didIWin() {
     }
 };
 
-$("#nextWord").on("click", function() {
+$("#nextWord-lost").on("click", function() {
     startGame(category);
     $(".container-loss-screen").hide();
     $(".container-game-screen").show();
-   
+    $(".container-win-screen").hide();
+    $("#missesPic").attr('src', 'assets/images/1.JPG');
+      
+});
+
+$("#nextWord-win").on("click", function() {
+    startGame(category);
+    $(".container-loss-screen").hide();
+    $(".container-game-screen").show();
+    $(".container-win-screen").hide();
+      
 });
 
 
@@ -183,10 +198,26 @@ $("#redo-lost").on("click", function() {
 });
 
 
+
+
+function winning() {
+    setInterval(nextImage, 300);
+    
+    function nextImage() {
+        
+        $("#winPic").attr('src', 'assets/images/win' + count + '.JPG');
+        count++;
+        if (count === 4) {
+          count = 1;
+        }
+      };
+};
+
+
 });
 
 
 // make a win screen
-// update the pictures when game is reset or nextword is presses
+
 
 

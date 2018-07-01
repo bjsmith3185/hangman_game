@@ -136,10 +136,17 @@ body {
     margin-top: 15px;
 }
 
+    /* button css area */
+
 .letter-btn-color {
     background: #3498DB;
-    margin: 8px;
-    padding: 10px;
+    margin: 10px;
+    padding: 20px;
+    
+}
+
+.letter-btn-color:hover {
+    background: rgb(99, 188, 247);
 }
 
 #picture-are-col {
@@ -208,4 +215,16 @@ body {
 
 #redo-lost {
     background: #3498DB;
+}
+
+
+/* winning screen area  */
+
+#winPic {
+    width: 70%;
+    height: 500px;
+    margin: 0 auto;
+    border: 2px solid black;
+    display: block;
+    margin-bottom: 5px;
 }
