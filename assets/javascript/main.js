@@ -62,10 +62,10 @@ $(document).ready(function() {
             selectedWord = cars[Math.floor(Math.random() * cars.length)];
         } else if (category === "wwe") {
             $("#category-name").text("WWE Wrestlers");
-            selectedWord = cars[Math.floor(Math.random() * cars.length)];
+            selectedWord = wwe[Math.floor(Math.random() * wwe.length)];
         } else if (category === "arcade") {
                 $("#category-name").text("Old Arcade Games");
-                selectedWord = cars[Math.floor(Math.random() * cars.length)];
+                selectedWord = arcade[Math.floor(Math.random() * arcade.length)];
         };
     
         console.log("selected word: " + selectedWord);
