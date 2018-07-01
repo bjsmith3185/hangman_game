@@ -55,6 +55,9 @@ body {
     color: #E74C3C;
 }
 
+.badge {
+    background: red;
+}
 /* game screen css */
 #game-title-bar {
     text-align: center;
