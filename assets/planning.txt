@@ -1,6 +1,137 @@
 
 
 
+
+select category,
+
+pick random word from category
+create letter buttons
+
+onclick letter button
+    hide the letter button
+        check if the letter is in the word
+            if true
+                put letter in the array
+                check if the two arrays match for a wins
+                    if true 
+                        wins++ 
+                        clear the guess array
+                        pick another random word from category
+                        clear the letter buttons div
+                        create new letter buttons
+                        misses = 0
+                        clear length array value
+                    if false
+                        nothing
+
+            if false
+                increase misses++
+                check to see if misses = 6 trys
+                    if true 
+                        set a var to false to keep from selecting more letter buttons
+                        losses++
+                        pop up lost screen with next word button
+                            onclick nextWord button
+                                clear the guess array
+                                pick another random word
+                                clear the letter buttons div
+                                create new letter buttons
+                                misses = 0
+                                clear lenght array value
+                                hide lost screen, show game screen
+
+                    if false
+                        nothing
+
+
+reStart button
+    hide game screen
+    show category screen
+    hide lost screen
+    clear button div
+    misses = 0
+    losses = 0
+    wins = 0
+    lengthofarray = 0
+    guessintoarray = []
+    display array = []
+    selectedword = ""
+
+-----------------
+
+on page load
+    restart()  includes everything in restart button
+    show category page
+    hide game page
+    hide lost page
+
+
+onclick category button
+    store var category
+    hide welcome page
+    show game page
+    hide lost page
+    show (start button)
+
+-----------------
+
+game page
+
+onclick of (start button)
+    hide (start button)
+    startGame()
+        pickWord()
+        makeButtons()
+
+    onclick (letterButton)
+        hide letter selected..
+        checkLetter()
+            true
+                populateLetter
+                check for wins
+                    true
+                        wins++
+                        nextWord()
+                    false
+                        nothing
+            false
+                misses++
+                check for end of game
+                    true
+                        losses++
+                        show loss page
+                            onclick (nextWord())
+                            onclick (restart())
+                    false
+                        nothing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 selectWord(category)
     picks random from array using var category
     creates wordtoguess array

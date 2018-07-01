@@ -87,9 +87,11 @@ function pickLetter() {
 
 function checkLetter(selectedLetter) {
     isInArray = false;
+    console.log("isinarray should be false: " + isInArray);
     for (var i = 0; i < lengthOfWordToGuess; i++) {
         if(selectedLetter === wordToGuessArray[i]) {
             isInArray = true;
+            console.log("isinarray should be true: " + isInArray);
             // game(selectedLetter);
             // console.log("is in the word: " + populateArray);
             // updateArray(selectedLetter);
@@ -210,6 +212,15 @@ $("body").on("click", ".category-buttons", function() {
     $(".losses").text(losses);
   
 });
+
+function startGame() {
+    selectWord(category);
+    createButtons();
+    pickLetter();
+    misses = 0;
+    
+
+}
 
 
 function restart() {
