@@ -5,10 +5,12 @@ var letters =["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q
 var main = $("body");
 var buttons = main.find("#letter-area");
 var selectedLetter;
+var arcade = ["pacman", "space_invaders", "pong", "donkey_kong", "aseroids", "centipede", "dig_dug", "pole_position", "spy_hunter", "commando"];
 var movies = ["terminator", "commando", "predator","twins","true_lies","kindergarten_cop","pumping_iron"];
 var songs = ["keep_on_loving_you", "celebration", "who_can_it_be_now", "mickey", "beat_it", "all_night_long", "time_after_time", "the_power_of_love", "we_build_this_city", "livin_on_a_prayer", "la_bamba", "welcome_to_the_jungle", "free_fallin"];
 var burgers = ["tomato", "mustard", "bacon", "ketchup", "mayo", "lettuce", "egg", "pickles"];
 var cars = ["ford", "chevy", "dodge", "lexus", "kia", "toyota", "honda", "jeep", "chrystler"];
+var wwe = ["big_show", "brock_lesnar","matt_hardy", "the_rock", "steve_austin", "undertaker", "cm_punk", "john_cena", "booker_t", "hhh", "golddust", "aj_styles", "carmella", "dolph_ziggler", "billy_gunn", "big_bossman" ];
 var count = 1;
 var selectedWord;
 var category;
@@ -59,7 +61,14 @@ function startGame(category) {
     } else if (category === "cars") {
         $("#category-name").text("Car manufacturers");
         selectedWord = cars[Math.floor(Math.random() * cars.length)];
-    }
+    } else if (category === "wwe") {
+        $("#category-name").text("WWE Wrestlers");
+        selectedWord = cars[Math.floor(Math.random() * cars.length)];
+    } else if (category === "arcade") {
+            $("#category-name").text("Old Arcade Games");
+            selectedWord = cars[Math.floor(Math.random() * cars.length)];
+    };
+
     console.log("selected word: " + selectedWord);
     lengthOfWordToGuess = selectedWord.length;
     wordToGuessArray = selectedWord.split("");
