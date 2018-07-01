@@ -118,6 +118,23 @@ function doesLetterExist(selectedLetter) {
         }
 };
 
+function changeImage(misses) {
+    if (misses === 1) {
+        $("#missesPic").attr('src', 'assets/images/2.JPG');
+    } else if (misses === 2) {
+        $("#missesPic").attr('src', 'assets/images/3.JPG');
+    }else if (misses === 3) {
+        $("#missesPic").attr('src', 'assets/images/4.JPG');
+    }else if (misses === 4) {
+        $("#missesPic").attr('src', 'assets/images/5.JPG');
+    }else if (misses === 5) {
+        $("#missesPic").attr('src', 'assets/images/6.JPG');
+    }else if (misses === 6) {
+        $("#missesPic").attr('src', 'assets/images/7.JPG');
+    // }else if (misses === 7) {
+    //     $("#missesPic").attr('src', 'assets/images/8.JPG');
+     };
+};
 
 
 function didIWin() {
@@ -140,38 +157,31 @@ $("#nextWord").on("click", function() {
     startGame(category);
     $(".container-loss-screen").hide();
     $(".container-game-screen").show();
+    resetPic(misses);
 });
 
 
 $("#redo").on("click", function() {
+    alert("hi");
     $(".container-game-screen").hide();
     $(".container-loss-screen").hide();
     $(".container-welcome-screen").show();
+    resetPic(misses);
     wins = 0;
     losses = 0;
 });
 
-  
+function resetPic(misses) {
+    if(misses === 0) {
+        $("#missesPic").attr('src', 'assets/images/1.JPG');
+    }
+};
 // end of document ready
 
-function changeImage(misses) {
-    if (misses === 1) {
-        $("#missesPic").attr('src', 'assets/images/2.JPG');
-    } else if (misses === 2) {
-        $("#missesPic").attr('src', 'assets/images/3.JPG');
-    }else if (misses === 3) {
-        $("#missesPic").attr('src', 'assets/images/4.JPG');
-    }else if (misses === 4) {
-        $("#missesPic").attr('src', 'assets/images/5.JPG');
-    }else if (misses === 5) {
-        $("#missesPic").attr('src', 'assets/images/6.JPG');
-    }else if (misses === 6) {
-        $("#missesPic").attr('src', 'assets/images/7.JPG');
-    // }else if (misses === 7) {
-    //     $("#missesPic").attr('src', 'assets/images/8.JPG');
-     };
-};
 });
 
+
+// make a win screen
+// update the pictures when game is reset or nextword is presses
 
 

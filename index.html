@@ -32,33 +32,38 @@
     <!-- game screen area -->
 
     <div class="container container-game-screen">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2>Hangman, <span id="category-name"></span> category!</h2> 
-                    <div class="wins"></div>
-                    <div class="losses"></div>
-                    <div class="restart-area"><button class="restart-btn" id="restart">Restart</button></div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 id="game-title-bar">Hangman, <span id="category-name"></span> category!</h2> 
+                <div id="status-bar">
+                    <div id="wins"> Wins: <span class="wins">1</span></div>
+                    <div id="losses"> Losses: <span class="wins">1</span></div>
+                    <div class="restart-area">Feeling Overwhelmed? <button class=" btn restart-btn" id="redo">Restart</button></div>
                 </div>
+                
             </div>
-    
-            <div class="row">
-                <div class="col-lg-12" id="guess-area-col">
-                    <div class="guess-area" id="guess-area" ></div>
-                </div>
-            </div>
-    
-            <div class="row">
-                <div class="col-sm-8" id="letter-area-col">
-                    <div class="letter-area" id="letter-area">letter area</div>
-                </div>
-    
-                <div class="col-sm-4" id="picture-are-col">
-                    <div class="picture-area">
-                        <img src="assets/images/1.JPG" id="missesPic">
-                    </div>
-                </div>
+            <div id="clearfix"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12" id="guess-area-col">
+                <div class="guess-area" id="guess-area">This is a puzzle</div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-sm-6" id="letter-area-col">
+                <div class="letter-area" id="letter-area">letter area</div>
+            </div>
+            <div class="col-sm-2"></div>
+
+            <div class="col-sm-4" id="picture-are-col">
+                <!-- <div class="picture-area"> -->
+                    <img src="assets/images/1.JPG" id="missesPic">
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
 
 
         <div class="container container-loss-screen">
