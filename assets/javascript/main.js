@@ -52,7 +52,7 @@ $(document).ready(function() {
             $("#category-name").text("Movie titles");
             selectedWord = movies[Math.floor(Math.random() * movies.length)];
             } else if (category === "songs") {
-                $("#category-name").text("Song titles");
+                $("#category-name").text("80's Song titles");
             selectedWord = songs[Math.floor(Math.random() * songs.length)];
         } else if (category === "burgers") {
             $("#category-name").text("Burger toppings");
