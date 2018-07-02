@@ -72,6 +72,8 @@ $(document).ready(function() {
       lengthOfWordToGuess = selectedWord.length;
       wordToGuessArray = selectedWord.split("");
       for (var i = 0; i < lengthOfWordToGuess; i++) {
+// if for " "
+
           displayArray.push("_");
       }
       $("#guess-area").text(displayArray.join(" "));
