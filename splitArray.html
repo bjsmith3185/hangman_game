@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+    <title>hangman game</title>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp' crossorigin='anonymous'>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+   
+    <!-- <link rel='stylesheet' href='assets/css/style.css'> -->
+</head>
+
+<body>
+
+    <div id="display"></div>
+    
+    <script>
+
+var selectedWord = ["donkey kong"];
+var wordToGuessArray = [];
+var lengthOfWordToGuess;
+var tryThis = "hot '&nbsp;_&nbsp;' dog";
+
+
+// console.log("selected word: " + selectedWord);
+// lengthOfWordToGuess = selectedWord.length;
+// wordToGuessArray = selectedWord.split("");
+// console.log("this is wordtoguessarray: " + wordToGuessArray);
+// for (var i = 0; i < lengthOfWordToGuess; i++) {
+//     if (wordToGuessArray[i] === " ") {
+//         displayArray.push("    ");
+//     } else {
+//         displayArray.push("_");
+//     };
+    
+// };
+        $("#display").text(tryThis);
+    </script>
+
+
+   
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+   
+    <!-- <script type='text/javascript' src='assets/javascript/array.js'></script> -->
+</body>
+</html>

@@ -1,27 +1,29 @@
 $(document).ready(function() {
     
 
-  var letters =["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"," "];
+  var letters =["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
   var main = $("body");
   var buttons = main.find("#letter-area");
   var selectedLetter;
   var arcade = ["pacman", "space invaders", "pong", "donkey kong", "aseroids", "centipede", "dig dug", "pole position", "spy hunter", "commando"];
-  var movies = ["terminator", "commando", "predator","twins","true_lies","kindergarten_cop","pumping_iron"];
-  var songs = ["keep on loving you", "celebration", "who can it be now", "mickey", "beat_it", "all night long", "time after time", "the power of love", "we build this city", "livin on a prayer", "la bamba", "welcome to the jungle", "free fallin"];
+  var movies = ["terminator", "commando", "predator","twins","true lies","kindergarten cop","pumping iron"];
+  var songs = ["keep on loving you", "celebration", "who can it be now", "mickey", "beat it", "all night long", "time after time", "the power of love", "we build this city", "livin on a prayer", "la bamba", "welcome to the jungle", "free fallin"];
   var burgers = ["tomato", "mustard", "bacon", "ketchup", "mayo", "lettuce", "egg", "pickles"];
   var cars = ["ford", "chevy", "dodge", "lexus", "kia", "toyota", "honda", "jeep", "chrystler"];
-  var wwe = ["big_show", "brock_lesnar","matt_hardy", "the_rock", "steve_austin", "undertaker", "cm_punk", "john_cena", "booker_t", "hhh", "golddust", "aj_styles", "carmella", "dolph_ziggler", "billy_gunn", "big_bossman" ];
+  var wwe = ["big show", "brock lesnar","matt hardy", "the rock", "steve austin", "undertaker", "cm punk", "john cena", "booker t", "hhh", "golddust", "aj styles", "carmella", "dolph ziggler", "billy gunn", "big bossman" ];
   var count = 1;
   var selectedWord;
   var category;
   var wordToGuessArray = [];  
   var lengthOfWordToGuess; 
   var displayArray = []; 
+  var checkArray = [];
   var isInArray = false;
   var wins = 0;
   var losses = 0;
   var misses = 0;
   var gameOn = true;
+  
   
   $(".container-welcome-screen").show();
   $(".container-game-screen").hide();
@@ -47,7 +49,9 @@ $(document).ready(function() {
       displayArray = [];
       lengthOfWordToGuess;
       wordToGuessArray = [];
+      checkArray = [];
       selectedWord;
+   
       if (category === "movies") {
           $("#category-name").text("Movie titles");
           selectedWord = movies[Math.floor(Math.random() * movies.length)];
@@ -68,17 +72,28 @@ $(document).ready(function() {
               selectedWord = arcade[Math.floor(Math.random() * arcade.length)];
       };
   
-      console.log("selected word: " + selectedWord);
-      lengthOfWordToGuess = selectedWord.length;
-      wordToGuessArray = selectedWord.split("");
-      for (var i = 0; i < lengthOfWordToGuess; i++) {
-// if for " "
+        console.log("selected word: " + selectedWord);
+        lengthOfWordToGuess = selectedWord.length;
+        wordToGuessArray = selectedWord.split("");
 
-          displayArray.push("_");
-      }
-      $("#guess-area").text(displayArray.join(" "));
+        for (var i = 0; i < lengthOfWordToGuess; i++) {
+            if(wordToGuessArray[i] === " ") {
+                displayArray.splice(i, 1, '\u00A0');
+            } else {
+                displayArray.push("_");
+            }
+        };
+
+        for (var i = 0; i < lengthOfWordToGuess; i++) {
+            if (wordToGuessArray[i] === " ") {
+                wordToGuessArray.splice(i, 1, "");
+            }
+        };
+        
+        $("#guess-area").empty();
+        $("#guess-area").text(displayArray.join(" "));
     
-      createButtons();
+        createButtons();
   };
   
   function createButtons() {
@@ -88,10 +103,9 @@ $(document).ready(function() {
           var letterButton = $("<button>");
           letterButton.addClass("letter letter-btn-color").attr("data-newletter", letters[i]).text(letters[i]);  
           buttons.append(letterButton);
-        }
+        };
   };
-  
-     
+       
   buttons.on("click", ".letter", function() {
       if (gameOn) {
       selectedLetter = $(this).attr("data-newletter");
@@ -99,11 +113,9 @@ $(document).ready(function() {
       
       doesLetterExist(selectedLetter);
       didIWin();
-      }
+      };
   });
-   
-  
-  
+     
   function doesLetterExist(selectedLetter) {
       isInArray = false;
       
@@ -111,22 +123,23 @@ $(document).ready(function() {
           if(selectedLetter === wordToGuessArray[i]) {
               isInArray = true;
           } 
-      } 
+      };
       
       if (isInArray) {
           for (var i = 0; i < lengthOfWordToGuess; i++) {
               if(selectedLetter === wordToGuessArray[i]) {
                   displayArray[i] = selectedLetter;
+
+                  checkArray[i] = selectedLetter;
               }
               $("#guess-area").text(displayArray.join(" "));  
-          }
+          };
              
           } else {
               misses++;
               console.log("this is misses: " + misses);
               changeImage(misses);
-              
-          }
+          };
   };
   
   function changeImage(misses) {
@@ -144,25 +157,23 @@ $(document).ready(function() {
           $("#missesPic").attr('src', 'assets/images/7.JPG');
       };
   };
-  
-  
+    
   function didIWin() {
-      if (displayArray.toString() === wordToGuessArray.toString()) {
+      if (checkArray.toString() === wordToGuessArray.toString()) {
           wins++;
           $(".wins").text(wins);
           $("#missesPic").attr('src', 'assets/images/1.JPG');
           $(".container-game-screen").hide();
           $(".container-win-screen").show();
           winning();
-          
-          // startGame();
-  } else if (misses === 7) {
-          gameOn = false;
-          losses++;
-          $(".losses").text(losses);
-          $(".container-game-screen").hide();
-          $(".container-loss-screen").show();
-  }
+                  
+        } else if (misses === 7) {
+                gameOn = false;
+                losses++;
+                $(".losses").text(losses);
+                $(".container-game-screen").hide();
+                $(".container-loss-screen").show();
+        }
   };
   
   $("#nextWord-lost").on("click", function() {
@@ -183,7 +194,6 @@ $(document).ready(function() {
   
   
   $("#redo").on("click", function() {
-      // alert("hi");
       $(".container-game-screen").hide();
       $(".container-loss-screen").hide();
       $(".container-welcome-screen").show();
@@ -193,7 +203,6 @@ $(document).ready(function() {
   });
   
   $("#redo-lost").on("click", function() {
-      // alert("hi");
       $(".container-game-screen").hide();
       $(".container-loss-screen").hide();
       $(".container-welcome-screen").show();
@@ -203,16 +212,14 @@ $(document).ready(function() {
   });
   
   function winning() {
-      setInterval(nextImage, 300);
-      
+      setInterval(nextImage, 400);
       function nextImage() {
-          
           $("#winPic").attr('src', 'assets/images/win' + count + '.JPG');
           count++;
           if (count === 4) {
             count = 1;
           }
-        };
+      };
   };
   
   

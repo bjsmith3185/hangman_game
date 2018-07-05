@@ -1,0 +1,16 @@
+
+
+
+
+if wordselected[] === " " in wordselected
+   var space = indexof(" ")
+
+   var firstArray = wordselected[].split(0, (space - 1));
+   var secondArray = wordselected[].split(space , lenghtofword);
+   var combinedArray = firstArray + secondArray;
+
+
+
+ for (var i = 0; i < lenghtofword; i++) {
+     if ()
+ }  
