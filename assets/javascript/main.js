@@ -212,7 +212,7 @@ $(document).ready(function() {
     });
     
     function winning() {
-        setInterval(nextImage, 400);
+        setInterval(nextImage, 1000);
         function nextImage() {
             $("#winPic").attr('src', 'assets/images/win' + count + '.JPG');
             count++;
